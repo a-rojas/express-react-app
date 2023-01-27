@@ -1,0 +1,24 @@
+GET http://localhost:3030/animals
+
+###
+
+POST http://localhost:3030/animal
+Content-Type: application/json
+
+{
+    "name": "Alex",
+    "species": "Human",
+    "age": 29
+}
+
+###
+
+PUT http://localhost:3030/animal
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Alex",
+    "species": "Human",
+    "age": 29
+}
