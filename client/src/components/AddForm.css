@@ -1,0 +1,13 @@
+
+.form-container {
+  max-width: 400px;
+}
+
+.form-control {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form-control label {
+  flex: 10%;
+}

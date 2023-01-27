@@ -1,0 +1,19 @@
+.list{
+  padding: 0;
+}
+
+.filter-container {
+  margin-top: 25px;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}

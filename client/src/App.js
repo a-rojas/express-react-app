@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useEffect, useState } from "react";
+
 import './App.css';
+import List from './components/List';
+import Form from './components/AddForm';
 
 function App() {
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetchItems();
+  }, [])
+
+  const fetchItems = () => {
+    fetch('http://localhost:3030/animals')
+      .then(res => res.json())
+      .then(result => {
+        setItems(result)
+      })
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form refreshItems={fetchItems}/>
+      <List items={items} refreshItems={fetchItems} />
     </div>
   );
 }

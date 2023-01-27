@@ -1,0 +1,35 @@
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.list-item:nth-child(even) {
+    background: #FFFFFF
+}
+
+.list-item:nth-child(odd) {
+    background: #DDDDDD
+}
+
+.name-age {
+    display: flex;
+    justify-content: space-around;
+}
+
+.name-age .age {
+  margin-left: 15px;
+}
+
+.icon {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .name-age {
+    flex-direction: column;
+  }
+  .name-age .age {
+    margin-left: 0;
+  }  
+}
