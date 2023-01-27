@@ -25,6 +25,10 @@
   margin-left: 10px;
 }
 
+.delete:hover {
+  color: red
+}
+
 @media screen and (max-width: 600px) {
   .name-age {
     flex-direction: column;

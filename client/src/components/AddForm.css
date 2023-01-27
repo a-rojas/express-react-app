@@ -1,13 +1,35 @@
-
-.form-container {
-  max-width: 400px;
+.form-container p {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
 
-.form-control {
-  display: flex;
-  margin-bottom: 10px;
+.form-container input {
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    color: black;
 }
 
-.form-control label {
-  flex: 10%;
+.form-container button {
+    background:lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 250px;
+    color: white;
+    border-radius:4px;
+    border: lightgreen 1px solid;
+    margin-top: 25px;
+}
+
+.form-container button:hover {
+    cursor: pointer;
+}
+
+.form-container button:disabled {
+    background: lightgray;
+    border: lightgray 1px solid;
+    cursor:default;
+    color: gray;
 }

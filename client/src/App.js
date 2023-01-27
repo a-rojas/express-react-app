@@ -1,32 +1,20 @@
-import { useEffect, useState } from "react";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import './App.css';
-import List from './components/List';
-import Form from './components/AddForm';
+import Home from "./pages/Home";
+import Animal from "./pages/Animal";
 
 function App() {
-
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetchItems();
-  }, [])
-
-  const fetchItems = () => {
-    fetch('http://localhost:3030/animals')
-      .then(res => res.json())
-      .then(result => {
-        setItems(result)
-      })
-  }
-
-
-
   return (
-    <div className="App">
-      <Form refreshItems={fetchItems}/>
-      <List items={items} refreshItems={fetchItems} />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/animal' element={<Animal/>} />
+          <Route path='/animal/:id' element={<Animal/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
