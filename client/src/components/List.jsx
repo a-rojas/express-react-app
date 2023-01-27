@@ -25,26 +25,34 @@ export default function List({items, refreshItems}) {
     setListItems(filteredItems);
   };
 
+  if (items.length > 0) {
+    return (
+      <>
+      <div className="filter-container">
+        <label>Filter:</label>
+        <input type="text" onChange={filterItems}></input>
+      </div>
+
+        <ul className="list">
+          <li className="heading">
+            <span>
+              Name/Age
+            </span>
+            <span>
+              Species
+            </span>
+          </li>
+          {listItems.map((item) => {
+            return <ListItem key={item.id} item={item} refreshItems={refreshItems}/>
+          })}
+        </ul>
+      </>
+    )
+  }
+
   return (
     <>
-    <div className="filter-container">
-      <label>Filter:</label>
-      <input type="text" onChange={filterItems}></input>
-    </div>
-
-      <ul className="list">
-        <li className="heading">
-          <span>
-            Name/Age
-          </span>
-          <span>
-            Species
-          </span>
-        </li>
-        {listItems.map((item) => {
-          return <ListItem key={item.id} item={item} refreshItems={refreshItems}/>
-        })}
-      </ul>
+      <p>No Animals found</p>
     </>
   )
 }

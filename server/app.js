@@ -17,7 +17,13 @@ app.get('/animals', (req, res) => {
     res.json(data);
 });
 
-app.post('/animal', (req, res) => {
+app.get('/animals/:id', (req, res) => {
+    index = data.findIndex((item => item.id === Number(req.params.id)));
+
+    res.json(data[index]);
+});
+
+app.post('/animals/add', (req, res) => {
     const id = data.length + 1;
 
     const animal = {
@@ -32,10 +38,10 @@ app.post('/animal', (req, res) => {
     res.sendStatus(200)
 });
 
-app.put('/animal', (req, res) => {
+app.put('/animals/:id', (req, res) => {
 
     const updatedAnimal = {
-        id: req.body.id,
+        id: Number(req.params.id),
         name: req.body.name,
         species: req.body.species,
         age: req.body.age
@@ -47,9 +53,9 @@ app.put('/animal', (req, res) => {
     res.sendStatus(200)
 });
 
-app.delete('/animal', (req, res) => {
+app.delete('/animals/:id', (req, res) => {
     data = data.filter((item) => {
-        return item.id !== req.body.id
+        return item.id !== Number(req.params.id)
     });
 
     res.sendStatus(200)
